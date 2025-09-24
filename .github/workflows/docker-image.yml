@@ -35,6 +35,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./FRONTENDFORPROJECT
-          file: FRONTENDFORPROJECT/frontend.Dockerfile
+          file: FRONTENDFORPROJECT/src/frontend.Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/docker-frontend:latest
