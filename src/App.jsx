@@ -2,10 +2,9 @@ import { BrowserRouter } from "react-router-dom";
 import MainNavBar from "./main/MainNavBar";
 import AdminNavBar from "./admin/AdminNavBar";
 import PlayerNavBar from "./player/PlayerNavBar";
-import { AuthProvider, useAuth } from "./contextapi/AuthContext";
+import { AuthProvider, useAuth } from "./ContextAPI/AuthContext"; // Path corrected
 
-function AppContent() 
-{
+function AppContent() {
   const { isAdminLoggedIn, isPlayerLoggedIn } = useAuth();
 
   return (
