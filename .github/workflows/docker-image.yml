@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./BACKENDSDPWORKSPACE/SpringBootSDPProject
-          file: backend.Dockerfile
+          file: ./BACKENDSDPWORKSPACE/backend.Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/docker-backend:latest
 
@@ -35,6 +35,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./FRONTENDFORPROJECT
-          file: frontend.Dockerfile
+          file: ./FRONTENDFORPROJECT/frontend.Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/docker-frontend:latest
