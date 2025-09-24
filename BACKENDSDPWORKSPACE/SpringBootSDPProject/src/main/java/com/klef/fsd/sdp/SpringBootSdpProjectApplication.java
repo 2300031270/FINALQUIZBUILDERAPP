@@ -8,7 +8,7 @@ public class SpringBootSdpProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootSdpProjectApplication.class, args);
-		System.out.println("Project is Running...!!!");
+		System.out.println("Project is Running...!.!.!.");
 	}
 
 }
