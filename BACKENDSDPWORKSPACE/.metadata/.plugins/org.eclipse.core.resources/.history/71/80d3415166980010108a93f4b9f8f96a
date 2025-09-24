@@ -1,0 +1,24 @@
+package com.klef.fsd.sdp.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.klef.fsd.sdp.model.Player;
+import java.util.List;
+
+@Repository
+public interface PlayerRepository extends JpaRepository<Player, Integer>
+{
+    public Player findByUsernameAndPassword(String username, String password);
+    
+    @Query("select p from Player p where p.gender=?1")
+    public List<Player> displayPlayersByGender(String gender);
+    
+    @Modifying
+    @Transactional
+    @Query("delete from Player p where p.location=?1")
+    public Long deletePlayerByLocation(String location);
+}

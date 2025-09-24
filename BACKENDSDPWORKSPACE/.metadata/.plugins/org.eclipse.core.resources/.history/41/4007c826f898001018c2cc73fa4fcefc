@@ -1,0 +1,35 @@
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.klef.fsd.sdp.model.Player;
+import com.klef.fsd.sdp.repository.PlayerRepository;
+
+import java.util.Optional;
+
+@Service
+public class PlayerServiceImpl implements PlayerService
+{
+    @Autowired
+    private PlayerRepository playerRepository;
+    
+    @Override
+    public String playerRegistration(Player player) 
+    {
+        playerRepository.save(player);
+        return "Player Registered Successfully";
+    }
+
+    @Override
+    public Player checkPlayerLogin(String username, String password) 
+    {
+        String sanitizedUsername = username.trim();
+        String sanitizedPassword = password.trim();
+        
+        Optional<Player> playerOpt = playerRepository.findByUsernameAndPassword(sanitizedUsername, sanitizedPassword);
+        
+        if (playerOpt.isPresent()) {
+            return playerOpt.get(); // ✅ Login success
+        } else {
+            return null; // ✅ No match found
+        }
+    }
+}

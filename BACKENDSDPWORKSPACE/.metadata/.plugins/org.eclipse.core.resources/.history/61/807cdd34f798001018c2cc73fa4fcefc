@@ -1,0 +1,53 @@
+package com.klef.fsd.sdp.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.klef.fsd.sdp.model.Player;
+import com.klef.fsd.sdp.service.PlayerService;
+
+@RestController
+@RequestMapping("/player")
+@CrossOrigin("*") // Allow all origins for frontend testing
+public class PlayerController 
+{
+    @Autowired
+    private PlayerService playerService;
+    
+    @GetMapping("/")
+    public String home()
+    {
+        return "FSD SDP Project is running...";
+    }
+    
+    // Player Registration
+    @PostMapping("/registration")
+    public ResponseEntity<String> playerRegistration(@RequestBody Player player)
+    {
+        try {
+            String output = playerService.playerRegistration(player);
+            return ResponseEntity.ok(output); // 200 - success
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Player Registration failed: " + e.getMessage());
+        }
+    }
+    
+    // Player Login
+    @PostMapping("/login")
+    public ResponseEntity<?> checkPlayerLogin(@RequestBody Player player) 
+    {
+        try {
+            Player p = playerService.checkPlayerLogin(player.getUsername(), player.getPassword());
+
+            if (p != null) {
+                // Send only necessary info, not password!
+                return ResponseEntity.ok("Login successful! Welcome " + p.getName());
+            } else {
+                return ResponseEntity.status(401).body("Invalid Username or Password");
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Login failed: " + e.getMessage());
+        }
+    }
+}
