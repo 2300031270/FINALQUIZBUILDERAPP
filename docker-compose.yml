@@ -13,10 +13,10 @@ services:
       - springboot-mysql-net
 
   backend:
-    image: rishitha22/probackend:latest
+    image: kushala5/probackend:latest
     container_name: springboot
     ports:
-      - "2025:2020"
+      - "2025:2018"
     depends_on:
       - mysqldbs
     restart: on-failure
@@ -24,7 +24,7 @@ services:
       - springboot-mysql-net
 
   frontend:
-    image: rishitha22/profrontend:latest
+    image: kushala5/profrontend:latest
     container_name: reactpro
     ports:
       - "3000:80"
