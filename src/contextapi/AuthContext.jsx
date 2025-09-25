@@ -4,8 +4,9 @@ import { createContext, useState, useContext, useEffect } from 'react';
 const AuthContext = createContext();
 
 // Provider component to manage login states and user data
-export function AuthProvider({ children }) {
-  // Load initial state from localStorage or default to false
+export function AuthProvider({ children }) 
+{
+  // Load initial state from localStorage or default to false/null
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(() => {
     return localStorage.getItem('isAdminLoggedIn') === 'true';
   });
@@ -13,7 +14,7 @@ export function AuthProvider({ children }) {
   const [isCustomerLoggedIn, setIsCustomerLoggedIn] = useState(() => {
     return localStorage.getItem('isCustomerLoggedIn') === 'true';
   });
-
+  
   const [isManagerLoggedIn, setIsManagerLoggedIn] = useState(() => {
     return localStorage.getItem('isManagerLoggedIn') === 'true';
   });
@@ -22,8 +23,7 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     localStorage.setItem('isAdminLoggedIn', isAdminLoggedIn);
     localStorage.setItem('isCustomerLoggedIn', isCustomerLoggedIn);
-    localStorage.setItem('isManagerLoggedIn', isManagerLoggedIn);
-  }, [isAdminLoggedIn, isCustomerLoggedIn, isManagerLoggedIn]);
+  }, [isAdminLoggedIn, isCustomerLoggedIn, ]);
 
   return (
     <AuthContext.Provider

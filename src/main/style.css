@@ -1,0 +1,137 @@
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(45deg, #e24ab2, #5fe350); /* pink to green gradient */
+  padding: 15px 30px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 15px;
+  position: relative;
+}
+
+.nav-links a,
+.nav-links span {
+  text-decoration: none;
+  color: white;
+  padding: 10px 15px;
+  display: block;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.nav-links a:hover,
+.nav-links span:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #f1f1f1;
+  border-radius: 5px;
+  min-width: 160px;
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+.dropdown-menu li {
+  display: block;
+}
+
+.dropdown-menu a {
+  color: #333;
+  padding: 10px 15px;
+  transition: all 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background: #4a90e2;
+  color: white;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Homepage Container */
+.home-container {
+  padding: 50px 20px;
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(to right, #fff5f7, #e0f7fa);
+  color: #333;
+  min-height: calc(100vh - 70px); /* adjust for navbar height */
+}
+
+/* Homepage Heading */
+.home-container h1 {
+  font-size: 3rem;
+  color: #e24ab2;
+  margin-bottom: 25px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Homepage Paragraphs */
+.home-container p {
+  font-size: 1.3rem;
+  margin: 20px auto;
+  max-width: 700px;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* Fun Highlights */
+.home-container p::before {
+  content: "✨ ";
+}
+
+.home-container p::after {
+  content: " 🎉";
+}
+
+/* Page Not Found */
+.not-found-container {
+  text-align: center;
+  padding: 50px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #e24ab2;
+}
+
+.not-found-image {
+  width: 300px;
+  height: auto;
+  margin-top: 20px; 
+  animation: bounce 1.5s infinite;
+}
+
+/* Fun Bounce Animation for Images */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
